@@ -1,16 +1,10 @@
-function minPathSum(grid) {
-  const rows = grid.length;
-  const cols = grid[0].length;
-  for (let i = 1; i < rows; i++) {
-    grid[i][0] += grid[i - 1][0];
+function findMin(nums) {
+  let left = 0;
+  let right = nums.length - 1;
+  while (left < right) {
+    const mid = Math.floor((left + right) / 2);
+    if (nums[mid] > nums[right]) left = mid + 1;
+    else right = mid;
   }
-  for (let j = 1; j < cols; j++) {
-    grid[0][j] += grid[0][j - 1];
-  }
-  for (let i = 1; i < rows; i++) {
-    for (let j = 1; j < cols; j++) {
-      grid[i][j] += Math.min(grid[i - 1][j], grid[i][j - 1]);
-    }
-  }
-  return grid[rows - 1][cols - 1];
+  return nums[left];
 }
