@@ -1,5 +1,10 @@
-function kthSmallest(matrix, k) {
-  const flatten = matrix.reduce((acc, row) => acc.concat(row), []);
-  flatten.sort((a, b) => a - b);
-  return flatten[k - 1];
-}
+const factorial = (n) => {
+  if (n === 0 || n === 1) {
+    return 1;
+  }
+  let result = 1;
+  for (let i = 2; i <= n; i++) {
+    result *= i;
+  }
+  return result;
+};
